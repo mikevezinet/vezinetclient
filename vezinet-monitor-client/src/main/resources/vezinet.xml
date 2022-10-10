@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<!-- Enable AspectJ style of Spring AOP -->
+	<aop:aspectj-autoproxy />
+	<bean name="connectivity" class="com.vezinet.connectivity">
+
+		<property name="list">
+			<list>
+
+				
+
+	<!-- <bean name="connectivity2" class="com.vezinet.getdata"> 	C -->			
+				<bean name="connectivity2" class="com.vezinet.getdata">
+					<property name="ip" value="localhost" />
+					<property name="id" value="19" />
+					<property name="port" value="9123" />
+				</bean>
+				</list>
+		</property>
+	</bean>
+   	<bean name="mysql" class="mysql.mysql" >
+      <!-- <property name="url" value="jdbc:mysql://localhost:3306/ticket" />	C -->  
+         <property name="url" value="jdbc:mysql://localhost:3306/vezinetmonitor11" />
+        <property name="user" value="root" />
+        <property name="pass" value="Admin123$" />
+    </bean>
+	  <bean name="mysql1" class="mysql.loggingaspect" />	  
+
+
+   <bean name="computer" class="ve_windows.ComputerPerformance"></bean>
+    <bean name="windows" class="ve_windows.Ve_windows" />
+    <!--  
+   <bean name="postgres1" class="ve_postgres.postgres">
+        <property name="url" value="jdbc:postgresql://localhost:5432/template0" />
+        <property name="user" value="postgres" />
+        <property name="pass" value="root" />
+    </bean>
+    <bean name="postgres" class="ve_postgres.ve_postgres" /> 
+    
+    <bean name="weblogic1" class="weblogic.ServerHealthStateMonitor" >
+        <property name="hostname" value="localhost" />
+        <property name="password" value="Admin123$" />
+        <property name="portString" value="7001" />
+        <property name="username" value="weblogic" />
+    </bean>
+    <bean name="weblogic3" class="weblogic.weblogicdata" />-->
+     
+
+</beans>
